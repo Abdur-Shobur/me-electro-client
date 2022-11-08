@@ -5,6 +5,7 @@ function ReviewForm({ details_data }) {
   const [review, setReview] = useState([])
   const { user } = useContext(UserAuth)
   const user_id = user?.uid
+  const service_name = details_data[0].service_name
   const id = details_data[0]._id
   const review_submit = (e) => {
     e.preventDefault()
@@ -12,6 +13,7 @@ function ReviewForm({ details_data }) {
     const review_message = e.target.review_message.value
     const value = {
       porduct_id: id,
+      service_name,
       review,
       review_message,
       user_id,
