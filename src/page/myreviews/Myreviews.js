@@ -1,6 +1,19 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { UserAuth } from '../../auth/Auth'
 
 function Myreviews() {
+  const [myreview, setmyReview] = useState()
+  const { user } = useContext(UserAuth)
+
+  const id = user.uid
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/review/user/${id}`)
+      .then((res) => res.json())
+      .then((data) => setmyReview(data))
+  }, [id])
+
+  console.log(myreview)
   return (
     <div>
       <section className="text-gray-600 body-font">

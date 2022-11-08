@@ -23,7 +23,7 @@ function Addservice() {
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),
     })
-      .then((res) => console.log(res))
+      .then((res) => res.json())
       .then((data) => console.log(data))
   }
   return (

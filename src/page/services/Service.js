@@ -1,4 +1,6 @@
 import { useLoaderData } from 'react-router-dom'
+import ReviewCard from '../../component/Card/ReviewCard'
+import ReviewForm from './ReviewForm'
 
 function Service() {
   const single_data = useLoaderData()
@@ -24,9 +26,9 @@ function Service() {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-indigo-500"
                   viewBox="0 0 24 24"
                 >
@@ -35,9 +37,9 @@ function Service() {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-indigo-500"
                   viewBox="0 0 24 24"
                 >
@@ -46,9 +48,9 @@ function Service() {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-indigo-500"
                   viewBox="0 0 24 24"
                 >
@@ -57,9 +59,9 @@ function Service() {
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-indigo-500"
                   viewBox="0 0 24 24"
                 >
@@ -68,9 +70,9 @@ function Service() {
                 <svg
                   fill="none"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-4 h-4 text-indigo-500"
                   viewBox="0 0 24 24"
                 >
@@ -82,9 +84,9 @@ function Service() {
                 <a className="text-gray-500">
                   <svg
                     fill="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-5 h-5"
                     viewBox="0 0 24 24"
                   >
@@ -94,9 +96,9 @@ function Service() {
                 <a className="text-gray-500">
                   <svg
                     fill="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-5 h-5"
                     viewBox="0 0 24 24"
                   >
@@ -106,9 +108,9 @@ function Service() {
                 <a className="text-gray-500">
                   <svg
                     fill="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-5 h-5"
                     viewBox="0 0 24 24"
                   >
@@ -145,9 +147,9 @@ function Service() {
                     <svg
                       fill="none"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-4 h-4"
                       viewBox="0 0 24 24"
                     >
@@ -167,9 +169,9 @@ function Service() {
               <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                 <svg
                   fill="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="w-5 h-5"
                   viewBox="0 0 24 24"
                 >
@@ -178,6 +180,12 @@ function Service() {
               </button>
             </div>
           </div>
+        </div>
+        <div>
+          <ReviewCard details_data={single_data} />
+        </div>
+        <div>
+          <ReviewForm details_data={single_data} />
         </div>
       </div>
     </section>
