@@ -4,8 +4,15 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup,
+  GithubAuthProvider,
+  signOut,
 } from 'firebase/auth'
+
 import app from './Firebase.init'
+const provider = new GoogleAuthProvider()
+const git_provider = new GithubAuthProvider()
 const auth = getAuth(app)
 
 export const UserAuth = createContext()
@@ -20,12 +27,29 @@ function Auth({ children }) {
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
+  // email password login
   const sign_in = (email, password) => {
     setLoading(true)
     return signInWithEmailAndPassword(auth, email, password)
   }
-  // email password login
 
+  // sign in with google pop up
+  const sign_in_google_pop_up = () => {
+    setLoading(true)
+    return signInWithPopup(auth, provider)
+  }
+  // sign in with github pop up
+  const sign_in_git_hub_pop_up = () => {
+    setLoading(true)
+    return signInWithPopup(auth, git_provider)
+  }
+
+  // signout
+
+  const sign_out = () => {
+    setLoading(true)
+    return signOut(auth)
+  }
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (usr) => {
       setLoading(false)
@@ -38,9 +62,12 @@ function Auth({ children }) {
     user,
     create_user,
     sign_in,
+    sign_in_google_pop_up,
+    sign_in_git_hub_pop_up,
+    sign_out,
     loading,
   }
-
+  console.log(user)
   return <UserAuth.Provider value={value}>{children}</UserAuth.Provider>
 }
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { AiOutlineUser } from 'react-icons/ai'
 
 function ReviewCard({ details_data }) {
   const [review, setReview] = useState([])
@@ -19,14 +20,23 @@ function ReviewCard({ details_data }) {
 
           <div className="divide-y">
             {review.map((e) => (
-              <div key={e._id} className="flex flex-col gap-3 py-4 md:py-8  ">
+              <div key={e._id} className="flex py-4 md:py-8 gap-3 ">
                 <div>
-                  <span className="block text-sm font-bold">
-                    {e.user_name || 'No Name'}
-                  </span>
+                  {e?.photoURL ? (
+                    <img src={e.photoURL} alt="" />
+                  ) : (
+                    <AiOutlineUser className="text-5xl" />
+                  )}
                 </div>
-                <div>{e.review}</div>
-                <p className="text-gray-600">{e?.review_message}</p>
+                <div className="flex flex-col gap-3 ">
+                  <div>
+                    <span className="block text-sm font-bold">
+                      {e.user_name || 'No Name'}
+                    </span>
+                  </div>
+                  <div>{e.review}</div>
+                  <p className="text-gray-600">{e?.review_message}</p>
+                </div>
               </div>
             ))}
           </div>

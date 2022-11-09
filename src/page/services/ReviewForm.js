@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { UserAuth } from '../../auth/Auth'
 
 function ReviewForm({ details_data }) {
-  const [review, setReview] = useState([])
+  // const [review, setReview] = useState([])
   const { user } = useContext(UserAuth)
   const user_name = user?.displayName || 'Unregister User'
-
+  const user_photo = user?.photoURL
   const user_id = user?.uid
   const service_name = details_data[0].service_name
   const id = details_data[0]._id
@@ -20,6 +21,7 @@ function ReviewForm({ details_data }) {
       review_message,
       user_id,
       user_name,
+      user_photo,
     }
 
     fetch('http://localhost:5000/review', {
@@ -31,11 +33,12 @@ function ReviewForm({ details_data }) {
       .then((data) => console.log(data))
   }
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/review/${id}`)
-      .then((res) => res.json())
-      .then((data) => setReview(data))
-  }, [id])
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/review/${id}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setReview(data))
+  // }, [id])
+  // console.log(review)
 
   return (
     <div>
@@ -72,17 +75,32 @@ function ReviewForm({ details_data }) {
               <textarea
                 id="review_message"
                 name="review_message"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                className="w-full bg-white rounded border  border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
               ></textarea>
             </div>
-            <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-              Add Review
-            </button>
+            <div>
+              <button
+                disabled={user_id ? false : true}
+                type="submit"
+                className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+              >
+                Add Review
+              </button>
+
+              <div className="mt-4">
+                {user_id ? (
+                  ''
+                ) : (
+                  <Link
+                    className="text-red-600 text-lg underline"
+                    to="/sign-in"
+                  >
+                    You have to Login first
+                  </Link>
+                )}
+              </div>
+            </div>
           </form>
-          <p className="text-xs text-gray-500 mt-3">
-            Chicharrones blog helvetica normcore iceland tousled brook viral
-            artisan.
-          </p>
         </div>
       </section>
     </div>

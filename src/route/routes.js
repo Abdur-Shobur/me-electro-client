@@ -8,6 +8,7 @@ import Service from '../page/services/Service'
 import Services from '../page/services/Services'
 import Signin from '../page/sign/Signin'
 import Signup from '../page/sign/Signup'
+import PrivetRoute from './PrivetRoute'
 
 const routes = createBrowserRouter([
   {
@@ -31,17 +32,29 @@ const routes = createBrowserRouter([
 
       {
         path: 'my-reviews',
-        element: <Myreviews />,
+        element: (
+          <PrivetRoute>
+            <Myreviews />
+          </PrivetRoute>
+        ),
       },
       {
         path: 'my-reviews/edit-reivew/:id',
         loader: ({ params }) =>
           fetch(`http://localhost:5000/review/${params?.id}`),
-        element: <EditReview />,
+        element: (
+          <PrivetRoute>
+            <EditReview />
+          </PrivetRoute>
+        ),
       },
       {
         path: 'add-service',
-        element: <Addservice />,
+        element: (
+          <PrivetRoute>
+            <Addservice />
+          </PrivetRoute>
+        ),
       },
       {
         path: 'sign-in',

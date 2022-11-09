@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { UserAuth } from '../../auth/Auth'
 
 function Nav() {
+  const { user, sign_out } = useContext(UserAuth)
+  const user_sing_out = () => {
+    sign_out()
+      .then((res) => console.log('Success log out'))
+      .catch((err) => console.log(err))
+  }
+  const u_id = user?.uid
   return (
     <div className="shadow">
       <div className="container mx-auto">
@@ -68,24 +76,39 @@ function Nav() {
               <li>
                 <Link to="services">Services</Link>
               </li>
-              <li>
-                <Link to="my-reviews">My reviews</Link>
-              </li>
-              <li>
-                <Link to="add-service">Add service</Link>
-              </li>
+              {u_id && (
+                <li>
+                  <Link to="my-reviews">My reviews</Link>
+                </li>
+              )}
+              {u_id && (
+                <li>
+                  <Link to="add-service">Add service</Link>
+                </li>
+              )}
             </ul>
           </div>
           <div className="navbar-end">
-            <Link className="btn mx-2 btn-sm border-none" to="/sign-in">
-              Sign In
-            </Link>
-            <Link className="btn mx-2 btn-sm border-none" to="/sign-up">
-              Sign Up
-            </Link>
-            <button className="btn mx-2 bg-red-700 border-none btn-sm">
-              Logout
-            </button>
+            {u_id ? (
+              <>
+                <h1>{user?.displayName || 'Unregister'}</h1>
+                <button
+                  onClick={user_sing_out}
+                  className="btn mx-2 bg-red-700 border-none btn-sm"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link className="btn mx-2 btn-sm border-none" to="/sign-in">
+                  Sign In
+                </Link>
+                <Link className="btn mx-2 btn-sm border-none" to="/sign-up">
+                  Sign Up
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>
