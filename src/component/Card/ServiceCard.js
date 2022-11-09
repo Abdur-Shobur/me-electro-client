@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { AiOutlineDelete } from 'react-icons/ai'
+import { AiOutlineDelete, AiFillStar } from 'react-icons/ai'
 import 'react-photo-view/dist/react-photo-view.css'
 import { PhotoProvider, PhotoView } from 'react-photo-view'
 import { UserAuth } from '../../auth/Auth'
@@ -9,6 +9,10 @@ import swal from 'sweetalert'
 function ServiceCard({ data }) {
   const { _id, service_name, service_details, rating, price, img } = data
   const { user } = useContext(UserAuth)
+  let rev = []
+  for (let i = 0; i <= parseInt(rating); i++) {
+    rev.push(i)
+  }
 
   const delete_service = (e) => {
     if (e) {
@@ -36,21 +40,33 @@ function ServiceCard({ data }) {
   }
 
   return (
-    <div className="card card-side bg-base-100 shadow-xl">
+    <div className="card card-side bg-base-100 shadow-xl hover:shadow transition-all">
       <figure className="min-w-[150px] ">
         <PhotoProvider>
           <div className="foo">
             <PhotoView src={img}>
-              <img className="h-full object-cover" src={img} alt="a" />
+              <img className="w-40 h-full object-cover" src={img} alt="a" />
             </PhotoView>
           </div>
         </PhotoProvider>
       </figure>
       <div className="card-body">
         <h2 className="card-title">{service_name}</h2>
-        <p>{service_details.slice(0, 70)}...</p>
-        <p>{rating}</p>
-        <p>{price}</p>
+        <p>
+          {service_details.slice(0, 70)}{' '}
+          <span className="text-blue-700 underline">
+            <Link to={`/services/service/${_id}`}>Read more...</Link>
+          </span>
+        </p>
+
+        <div className="flex gap-1">
+          {rev.map((e) => (
+            <AiFillStar key={e} className="text-yellow-400" />
+          ))}
+        </div>
+        <p className="text-xl font-semibold">
+          Price: <span className="text-blue-500">${price}</span>
+        </p>
         {user && (
           <button
             onClick={() => delete_service(_id)}
