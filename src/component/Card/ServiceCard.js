@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { AiOutlineDelete } from 'react-icons/ai'
+import 'react-photo-view/dist/react-photo-view.css'
+import { PhotoProvider, PhotoView } from 'react-photo-view'
 function ServiceCard({ data }) {
-  const { _id, service_name, service_details, rating, price } = data
+  const { _id, service_name, service_details, rating, price, img } = data
 
   const delete_service = (e) => {
     fetch(`http://localhost:5000/services/${e}`, {
@@ -14,11 +16,13 @@ function ServiceCard({ data }) {
   return (
     <div className="card card-side bg-base-100 shadow-xl">
       <figure className="min-w-[150px] ">
-        <img
-          className="h-full object-cover"
-          src="https://placeimg.com/200/280/arch"
-          alt="Movie"
-        />
+        <PhotoProvider>
+          <div className="foo">
+            <PhotoView src={img}>
+              <img className="h-full object-cover" src={img} alt="a" />
+            </PhotoView>
+          </div>
+        </PhotoProvider>
       </figure>
       <div className="card-body">
         <h2 className="card-title">{service_name}</h2>
