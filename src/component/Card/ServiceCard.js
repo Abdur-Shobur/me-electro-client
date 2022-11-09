@@ -1,20 +1,40 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AiOutlineDelete } from 'react-icons/ai'
 import 'react-photo-view/dist/react-photo-view.css'
 import { PhotoProvider, PhotoView } from 'react-photo-view'
 import { UserAuth } from '../../auth/Auth'
+import swal from 'sweetalert'
+
 function ServiceCard({ data }) {
   const { _id, service_name, service_details, rating, price, img } = data
   const { user } = useContext(UserAuth)
-  console.log(user)
+
   const delete_service = (e) => {
-    fetch(`http://localhost:5000/services/${e}`, {
-      method: 'DELETE',
-    })
-      .then((res) => res.json())
-      .then((err) => console.log(err))
+    if (e) {
+      return swal({
+        title: 'Are you sure?',
+        text:
+          'Once deleted, you will not be able to recover this imaginary file!',
+        icon: 'warning',
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          return fetch(`http://localhost:5000/services/${e}`, {
+            method: 'DELETE',
+          })
+            .then((res) => res.json())
+            .then((err) => {
+              swal('Poof! Your imaginary file has been deleted!', {
+                icon: 'success',
+              })
+            })
+        }
+      })
+    }
   }
+
   return (
     <div className="card card-side bg-base-100 shadow-xl">
       <figure className="min-w-[150px] ">

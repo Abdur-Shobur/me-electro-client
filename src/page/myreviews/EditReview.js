@@ -1,6 +1,6 @@
 import React from 'react'
-import { AiOutlineVerticalRight } from 'react-icons/ai'
 import { useLoaderData } from 'react-router-dom'
+import swal from 'sweetalert'
 
 function EditReview() {
   const single_review_data = useLoaderData()
@@ -13,19 +13,35 @@ function EditReview() {
     const review_messages = e.target.review_message.value
     single_data.review = Reviews
     single_data.review_message = review_messages
-    console.log(single_data._id)
-
-    fetch(`http://localhost:5000/review/${single_data._id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(single_data),
-    })
-      .then((res) => res.json())
-      .then((result) => console.log(result))
+    if (e) {
+      return swal({
+        title: 'Are you sure?',
+        text:
+          'Once deleted, you will not be able to recover this imaginary file!',
+        icon: 'warning',
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          return fetch(`http://localhost:5000/review/${single_data._id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(single_data),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              e.target.reset()
+              swal('Poof! Your imaginary file has been deleted!', {
+                icon: 'success',
+              })
+            })
+        }
+      })
+    }
   }
   return (
     <div>
-      <section className="text-gray-600 body-font relative border-t-4">
+      <section className="text-gray-600 body-font relative my-20">
         <div className="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col  mx-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
           <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
             Do you want to Edit any review?
@@ -61,14 +77,13 @@ function EditReview() {
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
               ></textarea>
             </div>
-            <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+            <button
+              type="submit"
+              className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            >
               Add Review
             </button>
           </form>
-          <p className="text-xs text-gray-500 mt-3">
-            Chicharrones blog helvetica normcore iceland tousled brook viral
-            artisan.
-          </p>
         </div>
       </section>
     </div>

@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserAuth } from '../../auth/Auth'
+import swal from 'sweetalert'
 
 function ReviewForm({ details_data }) {
-  // const [review, setReview] = useState([])
   const { user } = useContext(UserAuth)
   console.log(user)
   const user_name = user?.displayName || 'Unregister User'
@@ -27,21 +27,31 @@ function ReviewForm({ details_data }) {
       time,
     }
 
-    fetch('http://localhost:5000/review', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(value),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
+    if (e) {
+      return swal({
+        title: 'Do You want to add review?',
+        text: '',
+        icon: 'warning',
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          return fetch('http://localhost:5000/review', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(value),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              e.target.reset()
+              swal('Poof! Your imaginary file has been deleted!', {
+                icon: 'success',
+              })
+            })
+        }
+      })
+    }
   }
-
-  // useEffect(() => {
-  //   fetch(`http://localhost:5000/review/${id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setReview(data))
-  // }, [id])
-  // console.log(review)
 
   return (
     <div>

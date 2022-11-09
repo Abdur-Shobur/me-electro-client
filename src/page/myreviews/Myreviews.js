@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
+import 'react-toastify/dist/ReactToastify.css'
 import { UserAuth } from '../../auth/Auth'
 import dotdot from '../../media/dotdot.gif'
+import swal from 'sweetalert'
 
 function Myreviews() {
   const [myreview, setmyReview] = useState([])
@@ -20,21 +22,60 @@ function Myreviews() {
       })
   }, [id])
 
+  // delete review
   const delete_review = (e) => {
-    fetch(`http://localhost:5000/review/user/${e}`, {
-      method: 'DELETE',
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
+    if (e) {
+      return swal({
+        title: 'Are you sure?',
+        text:
+          'Once deleted, you will not be able to recover this imaginary file!',
+        icon: 'warning',
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          fetch(`http://localhost:5000/review/user/${e}`, {
+            method: 'DELETE',
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.deletedCount > 0) {
+                swal('Poof! Your imaginary file has been deleted!', {
+                  icon: 'success',
+                })
+              }
+            })
+        }
+      })
+    }
   }
 
   // delte all review
   const deleteAll_review = (e) => {
-    fetch(`http://localhost:5000/services/delete/${e}`, {
-      method: 'DELETE',
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
+    if (e) {
+      return swal({
+        title: 'Are you sure?',
+        text:
+          'Once deleted, you will not be able to recover this imaginary file!',
+        icon: 'warning',
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          fetch(`http://localhost:5000/services/delete/${e}`, {
+            method: 'DELETE',
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.deletedCount > 0) {
+                return swal('Poof! Your Reviews has been deleted!', {
+                  icon: 'success',
+                })
+              }
+            })
+        }
+      })
+    }
   }
 
   return (

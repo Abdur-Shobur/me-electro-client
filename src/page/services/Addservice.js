@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 function Addservice() {
   const add_service = (e) => {
     e.preventDefault()
@@ -24,10 +25,19 @@ function Addservice() {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success('Successfully added Service!', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 2000,
+          })
+          target.reset()
+        }
+      })
   }
   return (
     <div>
+      <ToastContainer />
       <div className="bg-white py-6 sm:py-8 lg:py-12">
         <div className="max-w-screen-2xl px-4 md:px-8 mx-auto">
           <div className="mb-10 md:mb-16">
@@ -52,8 +62,10 @@ function Addservice() {
                 Service Name*
               </label>
               <input
+                required
                 type="text"
                 name="service_name"
+                placeholder="Enter Service Name"
                 className="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
               />
             </div>
@@ -66,6 +78,8 @@ function Addservice() {
                 Service Images url
               </label>
               <input
+                required
+                placeholder="Enter photo URL"
                 name="img"
                 type="text"
                 className="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -80,6 +94,10 @@ function Addservice() {
                 Service Rating *
               </label>
               <input
+                max="5"
+                required
+                min="1"
+                placeholder="Add Reviews"
                 name="rating"
                 type="number"
                 className="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -94,6 +112,8 @@ function Addservice() {
                 Price*
               </label>
               <input
+                placeholder="Add Prices"
+                required
                 name="price"
                 type="number"
                 className="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
@@ -108,6 +128,8 @@ function Addservice() {
                 Service Details*
               </label>
               <textarea
+                required
+                placeholder="Enter Service Messages"
                 name="service_details"
                 className="w-full h-64 bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
               ></textarea>
@@ -121,16 +143,6 @@ function Addservice() {
               <span className="text-gray-500 text-sm">*Required</span>
             </div>
           </form>
-          <p className="text-gray-400 text-xs">
-            By signing up to our newsletter you agree to our{' '}
-            <a
-              href="h"
-              className="hover:text-indigo-500 active:text-indigo-600 underline transition duration-100"
-            >
-              Privacy Policy
-            </a>
-            .
-          </p>
         </div>
       </div>
     </div>
