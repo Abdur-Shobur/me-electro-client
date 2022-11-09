@@ -23,8 +23,6 @@ function Myreviews() {
       .then((data) => console.log(data))
   }
 
-  console.log(myreview)
-  console.log(user)
   return (
     <div>
       <section className="text-gray-600 body-font">
@@ -67,9 +65,9 @@ function Myreviews() {
                     </td>
                     <td className="px-4 py-3">{e?.review}</td>
                     <td className="px-4 py-3 text-lg text-gray-900">
-                      <button>
+                      <Link to={`edit-reivew/${e._id}`}>
                         <AiFillEdit className="text-blue-700 hover:text-blue-500 text-xl" />
-                      </button>
+                      </Link>
                     </td>
                     <td className="w-10 text-center">
                       <button onClick={() => delete_review(e?._id)}>

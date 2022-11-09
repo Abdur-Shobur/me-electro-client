@@ -1,6 +1,10 @@
 import React from 'react'
+import { useLoaderData } from 'react-router-dom'
 
 function EditReview() {
+  const single_review_data = useLoaderData()
+  const { review_message, review } = single_review_data[0]
+
   const review_submit = (e) => {
     e.preventDefault()
     const review = e.target.review.value
@@ -11,11 +15,9 @@ function EditReview() {
       <section className="text-gray-600 body-font relative border-t-4">
         <div className="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col  mx-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
           <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
-            Do you want to add any review?
+            Do you want to Edit any review?
           </h2>
-          <p className="leading-relaxed mb-5 text-gray-600">
-            Your Review is imoportant for us
-          </p>
+
           <form onSubmit={review_submit}>
             <div className="relative mb-4">
               <label
@@ -25,6 +27,7 @@ function EditReview() {
                 Review
               </label>
               <input
+                defaultValue={review}
                 type="text"
                 id="review"
                 name="review"
@@ -39,6 +42,7 @@ function EditReview() {
                 Review Message
               </label>
               <textarea
+                defaultValue={review_message}
                 id="review_message"
                 name="review_message"
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
