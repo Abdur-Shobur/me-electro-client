@@ -1,21 +1,32 @@
 import React, { useContext } from 'react'
 import { UserAuth } from '../../auth/Auth'
 import { AiFillGithub } from 'react-icons/ai'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 function SigninWIthPopUp() {
+  const location = useLocation()
+  const navigate = useNavigate()
+  const from = location?.state?.from?.pathname || '/'
+
   const { sign_in_google_pop_up, sign_in_git_hub_pop_up } = useContext(UserAuth)
 
   //   google pop up
   const on_google_sign_in = () => {
     sign_in_google_pop_up()
-      .then((res) => console.log(res))
+      .then((res) => {
+        navigate(from, { replace: true })
+        console.log(res)
+      })
       .catch((err) => console.log(err))
   }
 
   //   git hub pop up
   const on_git_hub_sign_in = () => {
     sign_in_git_hub_pop_up()
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res)
+        navigate(from, { replace: true })
+      })
       .catch((err) => console.log(err))
   }
   return (

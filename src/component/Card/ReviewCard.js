@@ -9,7 +9,7 @@ function ReviewCard({ details_data }) {
       .then((res) => res.json())
       .then((data) => setReview(data))
   }, [id])
-
+  console.log(review, 'rev')
   return (
     <div>
       <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -22,8 +22,12 @@ function ReviewCard({ details_data }) {
             {review.map((e) => (
               <div key={e._id} className="flex py-4 md:py-8 gap-3 ">
                 <div>
-                  {e?.photoURL ? (
-                    <img src={e.photoURL} alt="" />
+                  {e?.user_photo ? (
+                    <img
+                      className="rounded-full w-14 "
+                      src={e.user_photo}
+                      alt=""
+                    />
                   ) : (
                     <AiOutlineUser className="text-5xl" />
                   )}

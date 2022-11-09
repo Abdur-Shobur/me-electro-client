@@ -5,11 +5,13 @@ import { UserAuth } from '../../auth/Auth'
 function ReviewForm({ details_data }) {
   // const [review, setReview] = useState([])
   const { user } = useContext(UserAuth)
+  console.log(user)
   const user_name = user?.displayName || 'Unregister User'
   const user_photo = user?.photoURL
   const user_id = user?.uid
   const service_name = details_data[0].service_name
   const id = details_data[0]._id
+  const time = new Date().toISOString()
   const review_submit = (e) => {
     e.preventDefault()
     const review = e.target.review.value
@@ -22,6 +24,7 @@ function ReviewForm({ details_data }) {
       user_id,
       user_name,
       user_photo,
+      time,
     }
 
     fetch('http://localhost:5000/review', {

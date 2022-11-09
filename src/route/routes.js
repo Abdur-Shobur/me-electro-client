@@ -3,6 +3,7 @@ import Laout from '../layout/Laout'
 import Home from '../page/home/Home'
 import EditReview from '../page/myreviews/EditReview'
 import Myreviews from '../page/myreviews/Myreviews'
+import NotFound from '../page/NotFound'
 import Addservice from '../page/services/Addservice'
 import Service from '../page/services/Service'
 import Services from '../page/services/Services'
@@ -73,6 +74,10 @@ const routes = createBrowserRouter([
             <Signup />
           </PrivetLogin>
         ),
+      },
+      {
+        path: '*',
+        element: <NotFound />,
       },
     ],
   },

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ServiceCard from '../../component/Card/ServiceCard'
+import dotdot from '../../media/dotdot.gif'
 
 function Services() {
   const [loading, setLoadig] = useState(true)
@@ -16,14 +17,20 @@ function Services() {
 
   return (
     <div className="container mx-auto mt-10">
-      <div>{loading && <h1>Loading.......</h1>}</div>
+      <div className="relative">
+        {loading && (
+          <div className="flex justify-center">
+            <img className="w-32" src={dotdot} alt="" />
+          </div>
+        )}
+      </div>
       <div className="grid grid-cols-3 gap-5">
         {services.map((e) => (
           <ServiceCard key={e._id} data={e} />
         ))}
       </div>
       <div className="flex justify-center">
-        {services && (
+        {services.length > 0 && (
           <Link to="services">
             <button className="btn my-5">Show All</button>
           </Link>

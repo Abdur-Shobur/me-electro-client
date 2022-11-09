@@ -1,9 +1,13 @@
 import React, { useContext } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../../auth/Auth'
 import SigninWIthPopUp from './SigninWIthPopUp'
 
 function Signin() {
   const { sign_in } = useContext(UserAuth)
+  const location = useLocation()
+  const navigator = useNavigate()
+  const from = location?.state?.from?.pathname || '/'
   const sign_in_form = (e) => {
     e.preventDefault()
     const target = e.target
@@ -13,6 +17,7 @@ function Signin() {
       .then((user) => {
         console.log(user)
         target.reset()
+        navigator(from, { replace: true })
       })
       .catch((err) => console.log(err))
   }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ServiceCard from '../../component/Card/ServiceCard'
+import loading_img from '../../media/loading.gif'
 
 function Services() {
   const [services, set_services] = useState([])
@@ -16,7 +17,15 @@ function Services() {
 
   return (
     <div className="container mx-auto my-10">
-      <div>{loading && <h1>Loading.......</h1>}</div>
+      <div>
+        <div>
+          {loading && (
+            <div className="flex justify-center">
+              <img className="" src={loading_img} alt="" />
+            </div>
+          )}
+        </div>
+      </div>
 
       <div className="grid grid-cols-3 gap-5">
         {services.map((e) => (
