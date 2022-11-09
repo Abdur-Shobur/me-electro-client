@@ -1,14 +1,27 @@
 import React from 'react'
+import { AiOutlineVerticalRight } from 'react-icons/ai'
 import { useLoaderData } from 'react-router-dom'
 
 function EditReview() {
   const single_review_data = useLoaderData()
-  const { review_message, review } = single_review_data[0]
+  const single_data = single_review_data[0]
+  const { review_message, review } = single_data
 
   const review_submit = (e) => {
     e.preventDefault()
-    const review = e.target.review.value
-    const review_message = e.target.review_message.value
+    const Reviews = e.target.review.value
+    const review_messages = e.target.review_message.value
+    single_data.review = Reviews
+    single_data.review_message = review_messages
+    console.log(single_data._id)
+
+    fetch(`http://localhost:5000/review/${single_data._id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(single_data),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result))
   }
   return (
     <div>

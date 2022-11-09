@@ -4,6 +4,8 @@ import { UserAuth } from '../../auth/Auth'
 function ReviewForm({ details_data }) {
   const [review, setReview] = useState([])
   const { user } = useContext(UserAuth)
+  const user_name = user?.displayName || 'Unregister User'
+
   const user_id = user?.uid
   const service_name = details_data[0].service_name
   const id = details_data[0]._id
@@ -17,6 +19,7 @@ function ReviewForm({ details_data }) {
       review,
       review_message,
       user_id,
+      user_name,
     }
 
     fetch('http://localhost:5000/review', {
@@ -33,7 +36,6 @@ function ReviewForm({ details_data }) {
       .then((res) => res.json())
       .then((data) => setReview(data))
   }, [id])
-  console.log(review)
 
   return (
     <div>

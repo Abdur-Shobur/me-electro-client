@@ -80,23 +80,9 @@ function Myreviews() {
             </table>
           </div>
           <div className="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
-            <Link
-              to="/services"
-              className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
-            >
-              Services Page
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-4 h-4 ml-2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </Link>
+            <p className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+              Total Reviews {myreview.length + 1}
+            </p>
             <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
               Delete All
             </button>
