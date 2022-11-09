@@ -23,9 +23,11 @@ function Services() {
         ))}
       </div>
       <div className="flex justify-center">
-        <Link to="services">
-          <button className="btn my-5">Show All</button>
-        </Link>
+        {services && (
+          <Link to="services">
+            <button className="btn my-5">Show All</button>
+          </Link>
+        )}
       </div>
     </div>
   )

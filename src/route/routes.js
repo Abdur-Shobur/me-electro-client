@@ -8,6 +8,7 @@ import Service from '../page/services/Service'
 import Services from '../page/services/Services'
 import Signin from '../page/sign/Signin'
 import Signup from '../page/sign/Signup'
+import PrivetLogin from './PrivetLogin'
 import PrivetRoute from './PrivetRoute'
 
 const routes = createBrowserRouter([
@@ -58,12 +59,20 @@ const routes = createBrowserRouter([
       },
       {
         path: 'sign-in',
-        element: <Signin />,
+        element: (
+          <PrivetLogin>
+            <Signin />
+          </PrivetLogin>
+        ),
       },
 
       {
         path: 'sign-up',
-        element: <Signup />,
+        element: (
+          <PrivetLogin>
+            <Signup />
+          </PrivetLogin>
+        ),
       },
     ],
   },
