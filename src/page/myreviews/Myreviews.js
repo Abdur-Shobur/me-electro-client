@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
 import { UserAuth } from '../../auth/Auth'
 
 function Myreviews() {
@@ -14,7 +15,16 @@ function Myreviews() {
       .then((data) => setmyReview(data))
   }, [id])
 
+  const delete_review = (e) => {
+    fetch(`http://localhost:5000/review/user/${e}`, {
+      method: 'DELETE',
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+  }
+
   console.log(myreview)
+  console.log(user)
   return (
     <div>
       <section className="text-gray-600 body-font">
@@ -49,15 +59,23 @@ function Myreviews() {
                 </tr>
               </thead>
               <tbody>
-                {myreview.map((e) => (
-                  <tr key={e._id}>
+                {myreview?.map((e) => (
+                  <tr key={e?._id}>
                     <td className="px-4 py-3">{e.service_name}</td>
                     <td className="px-4 py-3">
                       {e.review_message.slice(0, 30)}...
                     </td>
-                    <td className="px-4 py-3">{e.review}</td>
-                    <td className="px-4 py-3 text-lg text-gray-900">edit</td>
-                    <td className="w-10 text-center">delete</td>
+                    <td className="px-4 py-3">{e?.review}</td>
+                    <td className="px-4 py-3 text-lg text-gray-900">
+                      <button>
+                        <AiFillEdit className="text-blue-700 hover:text-blue-500 text-xl" />
+                      </button>
+                    </td>
+                    <td className="w-10 text-center">
+                      <button onClick={() => delete_review(e?._id)}>
+                        <AiFillDelete className="text-red-700 hover:text-red-500 text-xl" />
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
