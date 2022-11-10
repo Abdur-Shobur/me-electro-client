@@ -3,21 +3,21 @@ import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
-    <div class="bg-gray-900">
-      <footer class="max-w-screen-2xl px-4 md:px-8 mx-auto">
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 lg:gap-8 pt-10 lg:pt-12 mb-16">
-          <div class="col-span-full lg:col-span-2">
-            <div class="lg:-mt-2 mb-4">
+    <div className="bg-gray-900">
+      <footer className="max-w-screen-2xl px-4 md:px-8 mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 lg:gap-8 pt-10 lg:pt-12 mb-16">
+          <div className="col-span-full lg:col-span-2">
+            <div className="lg:-mt-2 mb-4">
               <a
                 href="/"
-                class="inline-flex items-center text-gray-100 text-xl md:text-2xl font-bold gap-2"
+                className="inline-flex items-center text-gray-100 text-xl md:text-2xl font-bold gap-2"
                 aria-label="logo"
               >
                 <svg
                   width="95"
                   height="94"
                   viewBox="0 0 95 94"
-                  class="w-5 h-auto text-indigo-500"
+                  className="w-5 h-auto text-indigo-500"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -27,18 +27,18 @@ function Footer() {
               </a>
             </div>
 
-            <p class="text-gray-400 sm:pr-8 mb-6">
+            <p className="text-gray-400 sm:pr-8 mb-6">
               I'm providing some sevices for you.
             </p>
 
-            <div class="flex gap-4">
+            <div className="flex gap-4">
               <a
                 href="#"
                 target="_blank"
-                class="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100"
+                className="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100"
               >
                 <svg
-                  class="w-5 h-5"
+                  className="w-5 h-5"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -52,10 +52,10 @@ function Footer() {
               <a
                 href="#"
                 target="_blank"
-                class="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100"
+                className="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100"
               >
                 <svg
-                  class="w-5 h-5"
+                  className="w-5 h-5"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -69,10 +69,10 @@ function Footer() {
               <a
                 href="#"
                 target="_blank"
-                class="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100"
+                className="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100"
               >
                 <svg
-                  class="w-5 h-5"
+                  className="w-5 h-5"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -86,10 +86,10 @@ function Footer() {
               <a
                 href="#"
                 target="_blank"
-                class="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100"
+                className="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100"
               >
                 <svg
-                  class="w-5 h-5"
+                  className="w-5 h-5"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -103,15 +103,15 @@ function Footer() {
           </div>
 
           <div>
-            <div class="text-gray-100 font-bold tracking-widest uppercase mb-4">
+            <div className="text-gray-100 font-bold tracking-widest uppercase mb-4">
               Services
             </div>
 
-            <nav class="flex flex-col gap-4">
+            <nav className="flex flex-col gap-4">
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Overview
                 </a>
@@ -120,7 +120,7 @@ function Footer() {
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Solutions
                 </a>
@@ -129,7 +129,7 @@ function Footer() {
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Pricing
                 </a>
@@ -138,7 +138,7 @@ function Footer() {
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Customers
                 </a>
@@ -147,15 +147,15 @@ function Footer() {
           </div>
 
           <div>
-            <div class="text-gray-100 font-bold tracking-widest uppercase mb-4">
+            <div className="text-gray-100 font-bold tracking-widest uppercase mb-4">
               Company
             </div>
 
-            <nav class="flex flex-col gap-4">
+            <nav className="flex flex-col gap-4">
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   About
                 </a>
@@ -164,7 +164,7 @@ function Footer() {
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Investor Relations
                 </a>
@@ -173,7 +173,7 @@ function Footer() {
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Jobs
                 </a>
@@ -182,7 +182,7 @@ function Footer() {
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Press
                 </a>
@@ -191,7 +191,7 @@ function Footer() {
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Blog
                 </a>
@@ -200,15 +200,15 @@ function Footer() {
           </div>
 
           <div>
-            <div class="text-gray-100 font-bold tracking-widest uppercase mb-4">
+            <div className="text-gray-100 font-bold tracking-widest uppercase mb-4">
               Support
             </div>
 
-            <nav class="flex flex-col gap-4">
+            <nav className="flex flex-col gap-4">
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Contact
                 </a>
@@ -217,7 +217,7 @@ function Footer() {
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Documentation
                 </a>
@@ -226,7 +226,7 @@ function Footer() {
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Chat
                 </a>
@@ -235,7 +235,7 @@ function Footer() {
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   FAQ
                 </a>
@@ -244,15 +244,15 @@ function Footer() {
           </div>
 
           <div>
-            <div class="text-gray-100 font-bold tracking-widest uppercase mb-4">
+            <div className="text-gray-100 font-bold tracking-widest uppercase mb-4">
               Legal
             </div>
 
-            <nav class="flex flex-col gap-4">
+            <nav className="flex flex-col gap-4">
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Terms of Service
                 </a>
@@ -261,7 +261,7 @@ function Footer() {
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Privacy Policy
                 </a>
@@ -270,7 +270,7 @@ function Footer() {
               <div>
                 <a
                   href="#"
-                  class="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+                  className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Cookie settings
                 </a>
@@ -279,7 +279,7 @@ function Footer() {
           </div>
         </div>
 
-        <div class="text-gray-400 text-sm text-center border-t border-gray-800 py-8">
+        <div className="text-gray-400 text-sm text-center border-t border-gray-800 py-8">
           © 2022 - Present{' '}
           <Link className="text-blue-400 underline" to="/">
             ME ElecTro

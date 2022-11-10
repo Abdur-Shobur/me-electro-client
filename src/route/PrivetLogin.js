@@ -7,7 +7,7 @@ function PrivetLogin({ children }) {
 
   if (loading) {
     return (
-      <div class="h-screen bg-white">
+      <div className="h-screen bg-white">
         <div className="flex justify-center items-center h-full">
           <PuffLoader color="#36d7b7" />
         </div>

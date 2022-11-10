@@ -71,7 +71,7 @@ function Nav() {
                 width="95"
                 height="94"
                 viewBox="0 0 95 94"
-                class="w-5 h-auto text-indigo-500"
+                className="w-5 h-auto text-indigo-500"
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
               >

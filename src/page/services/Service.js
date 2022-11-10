@@ -3,8 +3,10 @@ import ReviewCard from '../../component/Card/ReviewCard'
 import ReviewForm from './ReviewForm'
 import 'react-photo-view/dist/react-photo-view.css'
 import { PhotoProvider, PhotoView } from 'react-photo-view'
+import { useState } from 'react'
 
 function Service() {
+  const [set, newSet] = useState(false)
   const single_data = useLoaderData()
   const product_data = single_data[0]
   const { service_name, service_details, rating, img, price } = product_data
@@ -41,10 +43,10 @@ function Service() {
           </div>
         </div>
         <div className="border-t-2">
-          <ReviewCard details_data={single_data} />
+          <ReviewCard details_data={single_data} set={set} />
         </div>
         <div>
-          <ReviewForm details_data={single_data} />
+          <ReviewForm details_data={single_data} setNew={newSet} set={set} />
         </div>
       </div>
     </section>

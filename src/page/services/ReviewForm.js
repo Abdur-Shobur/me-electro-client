@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { UserAuth } from '../../auth/Auth'
 import swal from 'sweetalert'
 
-function ReviewForm({ details_data }) {
+function ReviewForm({ details_data, setNew, set }) {
   const { user } = useContext(UserAuth)
   console.log(user)
   const user_name = user?.displayName || 'Unregister User'
@@ -44,6 +44,7 @@ function ReviewForm({ details_data }) {
             .then((res) => res.json())
             .then((data) => {
               e.target.reset()
+              setNew(!set)
               swal('Poof! Your imaginary file has been deleted!', {
                 icon: 'success',
               })

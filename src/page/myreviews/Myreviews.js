@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useAsyncError } from 'react-router-dom'
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
 import 'react-toastify/dist/ReactToastify.css'
 import { UserAuth } from '../../auth/Auth'
@@ -8,10 +8,10 @@ import swal from 'sweetalert'
 import { Helmet } from 'react-helmet'
 
 function Myreviews() {
+  const [deleteall, setdeleteALl] = useState(false)
   const [myreview, setmyReview] = useState([])
   const [loading, setLoading] = useState(true)
   const { user } = useContext(UserAuth)
-
   const id = user?.uid
   const review = myreview[0]?._id
   useEffect(() => {
@@ -73,9 +73,10 @@ function Myreviews() {
             .then((res) => res.json())
             .then((data) => {
               if (data.deletedCount > 0) {
-                return swal('Poof! Your Reviews has been deleted!', {
+                swal('Poof! Your Reviews has been deleted!', {
                   icon: 'success',
                 })
+                return setdeleteALl(!deleteall)
               }
             })
         }
@@ -150,7 +151,7 @@ function Myreviews() {
             </div>
             <div className="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
               <p className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
-                Total Reviews {myreview.length + 1}
+                Total Reviews {myreview.length}
               </p>
               <button
                 onClick={() => deleteAll_review(id)}
