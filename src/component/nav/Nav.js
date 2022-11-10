@@ -98,6 +98,9 @@ function Nav() {
                   <Link to="add-service">Add service</Link>
                 </li>
               )}
+              <li>
+                <Link to="blog">Blog</Link>
+              </li>
             </ul>
           </div>
           <div className="navbar-end">

@@ -4,10 +4,14 @@ import Myservice from './Myservice'
 import NewsLate from './NewsLate'
 import Services from './Services'
 import Teamember from './Teamember'
+import { Helmet } from 'react-helmet'
 
 function Home() {
   return (
     <div>
+      <Helmet>
+        <title>ME ElecTro Home</title>
+      </Helmet>
       <Banner />
       <Services />
       <Myservice />

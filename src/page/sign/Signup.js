@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../../auth/Auth'
 import SigninWIthPopUp from './SigninWIthPopUp'
+import { Helmet } from 'react-helmet'
 
 function Signup() {
   const { create_user } = useContext(UserAuth)
@@ -27,6 +28,9 @@ function Signup() {
   }
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
+      <Helmet>
+        <title>Sign Up</title>
+      </Helmet>
       <div className="max-w-screen-2xl px-4 md:px-8 mx-auto">
         <h2 className="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8">
           Sign up

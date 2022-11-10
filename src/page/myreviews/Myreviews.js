@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { UserAuth } from '../../auth/Auth'
 import dotdot from '../../media/dotdot.gif'
 import swal from 'sweetalert'
+import { Helmet } from 'react-helmet'
 
 function Myreviews() {
   const [myreview, setmyReview] = useState([])
@@ -16,7 +17,7 @@ function Myreviews() {
   useEffect(() => {
     fetch(`http://localhost:5000/review/user/${id}`, {
       headers: {
-        atuhuraigation: `Bearer ${localStorage.getItem('giniousToken')}`,
+        authorization: `Bearer ${localStorage.getItem('giniousToken')}`,
       },
     })
       .then((res) => res.json())
@@ -84,6 +85,9 @@ function Myreviews() {
 
   return (
     <div className="container mx-auto">
+      <Helmet>
+        <title>My Reviews</title>
+      </Helmet>
       {loading && (
         <div className="flex justify-center">
           <img className="w-32" src={dotdot} alt="" />

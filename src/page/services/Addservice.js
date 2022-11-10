@@ -1,6 +1,8 @@
 import React from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { Helmet } from 'react-helmet'
+
 function Addservice() {
   const add_service = (e) => {
     e.preventDefault()
@@ -37,6 +39,9 @@ function Addservice() {
   }
   return (
     <div>
+      <Helmet>
+        <title>Add Sevices</title>
+      </Helmet>
       <ToastContainer />
       <div className="bg-white py-6 sm:py-8 lg:py-12">
         <div className="max-w-screen-2xl px-4 md:px-8 mx-auto">

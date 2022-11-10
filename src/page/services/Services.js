@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ServiceCard from '../../component/Card/ServiceCard'
 import loading_img from '../../media/loading.gif'
+import { Helmet } from 'react-helmet'
 
 function Services() {
   const [services, set_services] = useState([])
@@ -17,6 +18,9 @@ function Services() {
 
   return (
     <div className="container mx-auto my-10">
+      <Helmet>
+        <title>All Services</title>
+      </Helmet>
       <div className="my-10">
         <div className="bg-stone-100 py-6 sm:py-8 lg:py-12 rounded-lg">
           <div className="max-w-screen-2xl px-4 md:px-8 mx-auto">
