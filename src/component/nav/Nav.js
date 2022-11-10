@@ -66,9 +66,19 @@ function Nav() {
                 </li>
               </ul>
             </div>
-            <a href="d" className="btn btn-ghost normal-case text-xl">
-              daisyUI
-            </a>
+            <Link to="/" className="btn btn-ghost normal-case text-xl">
+              <svg
+                width="95"
+                height="94"
+                viewBox="0 0 95 94"
+                class="w-5 h-auto text-indigo-500"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M96 0V47L48 94H0V47L48 0H96Z" />
+              </svg>
+              <span className="ml-3">ME ElecTro</span>
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">

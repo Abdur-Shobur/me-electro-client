@@ -14,7 +14,11 @@ function Myreviews() {
   const id = user?.uid
   const review = myreview[0]?._id
   useEffect(() => {
-    fetch(`http://localhost:5000/review/user/${id}`)
+    fetch(`http://localhost:5000/review/user/${id}`, {
+      headers: {
+        atuhuraigation: `Bearer ${localStorage.getItem('giniousToken')}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setLoading(false)

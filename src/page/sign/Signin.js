@@ -4,7 +4,7 @@ import { UserAuth } from '../../auth/Auth'
 import SigninWIthPopUp from './SigninWIthPopUp'
 
 function Signin() {
-  const { sign_in } = useContext(UserAuth)
+  const { sign_in, loading } = useContext(UserAuth)
   const location = useLocation()
   const navigator = useNavigate()
   const from = location?.state?.from?.pathname || '/'
@@ -15,11 +15,37 @@ function Signin() {
     const password = target.password.value
     sign_in(email, password)
       .then((user) => {
-        console.log(user)
+        if (loading) {
+          return <h1>Loading....</h1>
+        }
+
+        // const result = user.user.email
+        const U_id = user.user.uid
+        console.log(U_id)
+
+        const current_user = {
+          U_id: U_id,
+        }
+
+        // get jwt token
+        fetch('http://localhost:5000/jwt', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(current_user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data)
+            localStorage.setItem('giniousToken', data.token)
+            navigator(from, { replace: true })
+          })
+
         target.reset()
-        navigator(from, { replace: true })
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        console.log(err)
+        navigator('/')
+      })
   }
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">

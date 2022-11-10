@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -22,13 +23,12 @@ function Footer() {
                 >
                   <path d="M96 0V47L48 94H0V47L48 0H96Z" />
                 </svg>
-                Flowrift
+                ME ElecTro
               </a>
             </div>
 
             <p class="text-gray-400 sm:pr-8 mb-6">
-              Filler text is dummy text which has no meaning however looks very
-              similar to real text.
+              I'm providing some sevices for you.
             </p>
 
             <div class="flex gap-4">
@@ -104,7 +104,7 @@ function Footer() {
 
           <div>
             <div class="text-gray-100 font-bold tracking-widest uppercase mb-4">
-              Products
+              Services
             </div>
 
             <nav class="flex flex-col gap-4">
@@ -280,7 +280,11 @@ function Footer() {
         </div>
 
         <div class="text-gray-400 text-sm text-center border-t border-gray-800 py-8">
-          © 2021 - Present Flowrift. All rights reserved.
+          © 2022 - Present{' '}
+          <Link className="text-blue-400 underline" to="/">
+            ME ElecTro
+          </Link>{' '}
+          . All rights reserved.
         </div>
       </footer>
     </div>

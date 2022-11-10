@@ -43,11 +43,9 @@ function ServiceCard({ data }) {
     <div className="card card-side bg-base-100 shadow-xl hover:shadow transition-all">
       <figure className="min-w-[150px] ">
         <PhotoProvider>
-          <div className="foo">
-            <PhotoView src={img}>
-              <img className="w-40 h-full object-cover" src={img} alt="a" />
-            </PhotoView>
-          </div>
+          <PhotoView src={img}>
+            <img className="w-40 h-full object-cover" src={img} alt="a" />
+          </PhotoView>
         </PhotoProvider>
       </figure>
       <div className="card-body">

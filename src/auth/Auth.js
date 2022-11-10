@@ -67,7 +67,7 @@ function Auth({ children }) {
     sign_out,
     loading,
   }
-  console.log(user)
+
   return <UserAuth.Provider value={value}>{children}</UserAuth.Provider>
 }
 
