@@ -8,26 +8,35 @@ function SigninWIthPopUp() {
   const navigate = useNavigate()
   const from = location?.state?.from?.pathname || '/'
 
-  const { sign_in_google_pop_up, sign_in_git_hub_pop_up } = useContext(UserAuth)
+  const {
+    sign_in_google_pop_up,
+    sign_in_git_hub_pop_up,
+    loading,
+    setLoading,
+  } = useContext(UserAuth)
 
   //   google pop up
   const on_google_sign_in = () => {
     sign_in_google_pop_up()
       .then((res) => {
         navigate(from, { replace: true })
-        console.log(res)
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        navigate('/sign-in')
+        setLoading(false)
+      })
   }
 
   //   git hub pop up
   const on_git_hub_sign_in = () => {
     sign_in_git_hub_pop_up()
       .then((res) => {
-        console.log(res)
         navigate(from, { replace: true })
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        navigate('/sign-in')
+        setLoading(false)
+      })
   }
   return (
     <>

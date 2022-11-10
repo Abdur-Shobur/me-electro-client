@@ -6,7 +6,7 @@ import { UserAuth } from '../../auth/Auth'
 import dotdot from '../../media/dotdot.gif'
 import swal from 'sweetalert'
 import { Helmet } from 'react-helmet'
-
+import BeatLoader from 'react-spinners/BeatLoader'
 function Myreviews() {
   const [deleteall, setdeleteALl] = useState(false)
   const [myreview, setmyReview] = useState([])
@@ -15,7 +15,7 @@ function Myreviews() {
   const id = user?.uid
   const review = myreview[0]?._id
   useEffect(() => {
-    fetch(`http://localhost:5000/review/user/${id}`, {
+    fetch(`https://assignment11-nine.vercel.app/review/user/${id}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem('giniousToken')}`,
       },
@@ -25,7 +25,7 @@ function Myreviews() {
         setLoading(false)
         setmyReview(data)
       })
-  }, [id])
+  }, [id, deleteall])
 
   // delete review
   const delete_review = (e) => {
@@ -39,7 +39,7 @@ function Myreviews() {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          fetch(`http://localhost:5000/review/user/${e}`, {
+          fetch(`https://assignment11-nine.vercel.app/review/user/${e}`, {
             method: 'DELETE',
           })
             .then((res) => res.json())
@@ -67,7 +67,7 @@ function Myreviews() {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          fetch(`http://localhost:5000/services/delete/${e}`, {
+          fetch(`https://assignment11-nine.vercel.app/services/delete/${e}`, {
             method: 'DELETE',
           })
             .then((res) => res.json())
@@ -90,8 +90,10 @@ function Myreviews() {
         <title>My Reviews</title>
       </Helmet>
       {loading && (
-        <div className="flex justify-center">
-          <img className="w-32" src={dotdot} alt="" />
+        <div className="h-[50vh] bg-white">
+          <div className="flex justify-center items-center h-full">
+            <BeatLoader color="#36d7b7" />
+          </div>
         </div>
       )}
       {review ? (

@@ -1,17 +1,43 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserAuth } from '../../auth/Auth'
-
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 function Nav() {
   const { user, sign_out } = useContext(UserAuth)
+  console.log(user)
   const user_sing_out = () => {
     sign_out()
-      .then((res) => console.log('Success log out'))
+      .then((res) => {
+        toast.success('Success Logout!', {
+          position: 'top-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        })
+        console.log('Success log out')
+      })
       .catch((err) => console.log(err))
   }
   const u_id = user?.uid
   return (
     <div className="shadow">
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="container mx-auto">
         <div className="navbar bg-base-100">
           <div className="navbar-start">
@@ -37,32 +63,23 @@ function Nav() {
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a>Item 1</a>
-                </li>
-                <li tabIndex={0}>
-                  <a className="justify-between">
-                    Parent
-                    <svg
-                      className="fill-current"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                    </svg>
-                  </a>
-                  <ul className="p-2">
-                    <li>
-                      <a>Submenu 1</a>
-                    </li>
-                    <li>
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <a>Item 3</a>
+                  <Link to="services">Services</Link>
+                </li>
+                {u_id && (
+                  <li>
+                    <Link to="my-reviews">My reviews</Link>
+                  </li>
+                )}
+                {u_id && (
+                  <li>
+                    <Link to="add-service">Add service</Link>
+                  </li>
+                )}
+                <li>
+                  <Link to="blog">Blog</Link>
                 </li>
               </ul>
             </div>

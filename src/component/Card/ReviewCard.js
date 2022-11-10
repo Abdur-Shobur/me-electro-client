@@ -5,7 +5,7 @@ function ReviewCard({ details_data, set }) {
   const [review, setReview] = useState([])
   const id = details_data[0]._id
   useEffect(() => {
-    fetch(`http://localhost:5000/review/product/${id}`)
+    fetch(`https://assignment11-nine.vercel.app/review/product/${id}`)
       .then((res) => res.json())
       .then((data) => setReview(data))
   }, [id, set])

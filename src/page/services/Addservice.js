@@ -21,7 +21,7 @@ function Addservice() {
     }
     // update database
     // console.log(service_name, img, rating, price, service_details)
-    fetch('http://localhost:5000/services', {
+    fetch('https://assignment11-nine.vercel.app/services', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),

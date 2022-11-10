@@ -25,7 +25,7 @@ function ServiceCard({ data }) {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          return fetch(`http://localhost:5000/services/${e}`, {
+          return fetch(`https://assignment11-nine.vercel.app/services/${e}`, {
             method: 'DELETE',
           })
             .then((res) => res.json())

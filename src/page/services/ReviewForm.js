@@ -36,7 +36,7 @@ function ReviewForm({ details_data, setNew, set }) {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          return fetch('http://localhost:5000/review', {
+          return fetch('https://assignment11-nine.vercel.app/review', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(value),

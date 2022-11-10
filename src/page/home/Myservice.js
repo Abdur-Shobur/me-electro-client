@@ -44,7 +44,7 @@ function Myservice() {
                   very similar to real text.
                 </p>
                 <a
-                  href="#"
+                  href="f"
                   className="text-indigo-500 hover:text-indigo-600 active:text-indigo-700 font-bold transition duration-100"
                 >
                   More
@@ -79,7 +79,7 @@ function Myservice() {
                   very similar to real text.
                 </p>
                 <a
-                  href="#"
+                  href="f"
                   className="text-indigo-500 hover:text-indigo-600 active:text-indigo-700 font-bold transition duration-100"
                 >
                   More
@@ -114,7 +114,7 @@ function Myservice() {
                   very similar to real text.
                 </p>
                 <a
-                  href="#"
+                  href="f"
                   className="text-indigo-500 hover:text-indigo-600 active:text-indigo-700 font-bold transition duration-100"
                 >
                   More
@@ -147,7 +147,7 @@ function Myservice() {
                   very similar to real text.
                 </p>
                 <a
-                  href="#"
+                  href="f"
                   className="text-indigo-500 hover:text-indigo-600 active:text-indigo-700 font-bold transition duration-100"
                 >
                   More
@@ -182,7 +182,7 @@ function Myservice() {
                   very similar to real text.
                 </p>
                 <a
-                  href="#"
+                  href="f"
                   className="text-indigo-500 hover:text-indigo-600 active:text-indigo-700 font-bold transition duration-100"
                 >
                   More
@@ -217,7 +217,7 @@ function Myservice() {
                   very similar to real text.
                 </p>
                 <a
-                  href="#"
+                  href="f"
                   className="text-indigo-500 hover:text-indigo-600 active:text-indigo-700 font-bold transition duration-100"
                 >
                   More

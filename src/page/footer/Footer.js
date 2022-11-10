@@ -9,7 +9,7 @@ function Footer() {
           <div className="col-span-full lg:col-span-2">
             <div className="lg:-mt-2 mb-4">
               <a
-                href="/"
+                href="f"
                 className="inline-flex items-center text-gray-100 text-xl md:text-2xl font-bold gap-2"
                 aria-label="logo"
               >
@@ -33,7 +33,7 @@ function Footer() {
 
             <div className="flex gap-4">
               <a
-                href="#"
+                href="f"
                 target="_blank"
                 className="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100"
               >
@@ -50,7 +50,7 @@ function Footer() {
               </a>
 
               <a
-                href="#"
+                href="f"
                 target="_blank"
                 className="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100"
               >
@@ -67,7 +67,7 @@ function Footer() {
               </a>
 
               <a
-                href="#"
+                href="f"
                 target="_blank"
                 className="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100"
               >
@@ -84,7 +84,7 @@ function Footer() {
               </a>
 
               <a
-                href="#"
+                href="f"
                 target="_blank"
                 className="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100"
               >
@@ -110,7 +110,7 @@ function Footer() {
             <nav className="flex flex-col gap-4">
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Overview
@@ -119,7 +119,7 @@ function Footer() {
 
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Solutions
@@ -128,7 +128,7 @@ function Footer() {
 
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Pricing
@@ -137,7 +137,7 @@ function Footer() {
 
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Customers
@@ -154,7 +154,7 @@ function Footer() {
             <nav className="flex flex-col gap-4">
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   About
@@ -163,7 +163,7 @@ function Footer() {
 
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Investor Relations
@@ -172,7 +172,7 @@ function Footer() {
 
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Jobs
@@ -181,7 +181,7 @@ function Footer() {
 
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Press
@@ -190,7 +190,7 @@ function Footer() {
 
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Blog
@@ -207,7 +207,7 @@ function Footer() {
             <nav className="flex flex-col gap-4">
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Contact
@@ -216,7 +216,7 @@ function Footer() {
 
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Documentation
@@ -225,7 +225,7 @@ function Footer() {
 
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Chat
@@ -234,7 +234,7 @@ function Footer() {
 
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   FAQ
@@ -251,7 +251,7 @@ function Footer() {
             <nav className="flex flex-col gap-4">
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Terms of Service
@@ -260,7 +260,7 @@ function Footer() {
 
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Privacy Policy
@@ -269,7 +269,7 @@ function Footer() {
 
               <div>
                 <a
-                  href="#"
+                  href="f"
                   className="text-gray-400 hover:text-indigo-500 active:text-indigo-600 transition duration-100"
                 >
                   Cookie settings

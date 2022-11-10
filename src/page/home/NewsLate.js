@@ -29,14 +29,14 @@ function NewsLate() {
             <p className="text-gray-400 text-xs text-center">
               By signing up to our newsletter you agree to our{' '}
               <a
-                href="#"
+                href="f"
                 className="hover:text-indigo-500 active:text-indigo-600 underline transition duration-100"
               >
                 Term of Service
               </a>{' '}
               and{' '}
               <a
-                href="#"
+                href="f"
                 className="hover:text-indigo-500 active:text-indigo-600 underline transition duration-100"
               >
                 Privacy Policy

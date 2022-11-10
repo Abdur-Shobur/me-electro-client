@@ -23,11 +23,14 @@ function EditReview() {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          return fetch(`http://localhost:5000/review/${single_data._id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(single_data),
-          })
+          return fetch(
+            `https://assignment11-nine.vercel.app/review/${single_data._id}`,
+            {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(single_data),
+            },
+          )
             .then((res) => res.json())
             .then((result) => {
               e.target.reset()

@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../../auth/Auth'
 import SigninWIthPopUp from './SigninWIthPopUp'
 import { Helmet } from 'react-helmet'
-
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 function Signin() {
-  const { sign_in, loading } = useContext(UserAuth)
+  const { sign_in, loading, setLoading } = useContext(UserAuth)
   const location = useLocation()
   const navigator = useNavigate()
   const from = location?.state?.from?.pathname || '/'
@@ -20,6 +21,16 @@ function Signin() {
           return <h1>Loading....</h1>
         }
 
+        toast.success('Success Login!', {
+          position: 'top-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        })
         // const result = user.user.email
         const U_id = user.user.uid
         console.log(U_id)
@@ -29,7 +40,7 @@ function Signin() {
         }
 
         // get jwt token
-        fetch('http://localhost:5000/jwt', {
+        fetch('https://assignment11-nine.vercel.app/jwt', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
           body: JSON.stringify(current_user),
@@ -45,6 +56,7 @@ function Signin() {
       })
       .catch((err) => {
         console.log(err)
+        setLoading(false)
         navigator('/')
       })
   }
@@ -57,7 +69,7 @@ function Signin() {
         <h2 className="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8">
           Login
         </h2>
-
+        <ToastContainer />
         <div className="max-w-lg border rounded-lg mx-auto">
           <div className="flex flex-col gap-4 p-4 md:p-8">
             <form onSubmit={sign_in_form}>
@@ -83,6 +95,7 @@ function Signin() {
                 </label>
                 <input
                   name="password"
+                  type="password"
                   className="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
                 />
               </div>
@@ -100,13 +113,13 @@ function Signin() {
 
           <div className="flex justify-center items-center bg-gray-100 p-4">
             <p className="text-gray-500 text-sm text-center">
-              Don't have an account?{' '}
-              <a
-                href="#"
+              Don't have an account?
+              <Link
+                to="/sign-up"
                 className="text-indigo-500 hover:text-indigo-600 active:text-indigo-700 transition duration-100"
               >
-                Register
-              </a>
+                Sign Up
+              </Link>
             </p>
           </div>
         </div>

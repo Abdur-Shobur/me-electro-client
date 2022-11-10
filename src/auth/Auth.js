@@ -8,6 +8,7 @@ import {
   signInWithPopup,
   GithubAuthProvider,
   signOut,
+  updateProfile,
 } from 'firebase/auth'
 
 import app from './Firebase.init'
@@ -44,6 +45,16 @@ function Auth({ children }) {
     return signInWithPopup(auth, git_provider)
   }
 
+  // update user name photo
+  const updateName = (name, photo) => {
+    setLoading(true)
+
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    })
+  }
+
   // signout
 
   const sign_out = () => {
@@ -52,8 +63,8 @@ function Auth({ children }) {
   }
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (usr) => {
-      setLoading(false)
       setUser(usr)
+      setLoading(false)
     })
     return () => unsub()
   }, [])
@@ -64,8 +75,10 @@ function Auth({ children }) {
     sign_in,
     sign_in_google_pop_up,
     sign_in_git_hub_pop_up,
+    updateName,
     sign_out,
     loading,
+    setLoading,
   }
 
   return <UserAuth.Provider value={value}>{children}</UserAuth.Provider>

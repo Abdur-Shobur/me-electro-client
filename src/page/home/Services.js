@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ServiceCard from '../../component/Card/ServiceCard'
 import dotdot from '../../media/dotdot.gif'
-
+import BeatLoader from 'react-spinners/BeatLoader'
 function Services() {
   const [loading, setLoadig] = useState(true)
   const [services, set_services] = useState([])
   useEffect(() => {
-    fetch('http://localhost:5000/services?limit=3')
+    fetch('https://assignment11-nine.vercel.app/services?limit=3')
       .then((res) => res.json())
       .then((data) => {
         setLoadig(false)
@@ -19,12 +19,14 @@ function Services() {
     <div className="container mx-auto mt-10">
       <div className="relative">
         {loading && (
-          <div className="flex justify-center">
-            <img className="w-32" src={dotdot} alt="" />
+          <div className="bg-white">
+            <div className="flex justify-center items-center h-full">
+              <BeatLoader color="#36d7b7" />
+            </div>
           </div>
         )}
       </div>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {services.map((e) => (
           <ServiceCard key={e._id} data={e} />
         ))}
