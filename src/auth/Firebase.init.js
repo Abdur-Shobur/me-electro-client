@@ -1,11 +1,11 @@
 import { initializeApp } from 'firebase/app'
 const firebaseConfig = {
-  apiKey: 'AIzaSyB6e1GBdIMvlca6JIbBFVgAAU7q5dcb_FA',
-  authDomain: 'assignment11-9cfec.firebaseapp.com',
-  projectId: 'assignment11-9cfec',
-  storageBucket: 'assignment11-9cfec.appspot.com',
-  messagingSenderId: '148220155324',
-  appId: '1:148220155324:web:13bbc87d4e7b408c5747b9',
+  apiKey: 'AIzaSyBPqtpLdeuSf9DJVE8sfHHYLoNicCnn4IM',
+  authDomain: 'me-electro.firebaseapp.com',
+  projectId: 'me-electro',
+  storageBucket: 'me-electro.appspot.com',
+  messagingSenderId: '948837946298',
+  appId: '1:948837946298:web:fdd5bf668571cc2f5dc383',
 }
 
 const app = initializeApp(firebaseConfig)

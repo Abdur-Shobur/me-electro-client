@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ServiceCard from '../../component/Card/ServiceCard'
-import dotdot from '../../media/dotdot.gif'
 import BeatLoader from 'react-spinners/BeatLoader'
 function Services() {
   const [loading, setLoadig] = useState(true)

@@ -9,7 +9,7 @@ function Service() {
   const [set, newSet] = useState(false)
   const single_data = useLoaderData()
   const product_data = single_data[0]
-  const { service_name, service_details, rating, img, price } = product_data
+  const { service_name, service_details, img, price } = product_data
   return (
     <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto">

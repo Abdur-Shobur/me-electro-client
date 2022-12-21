@@ -1,11 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../../auth/Auth'
 import SigninWIthPopUp from './SigninWIthPopUp'
 import { Helmet } from 'react-helmet'
 import swal from 'sweetalert'
 function Signup() {
-  const { user, create_user, updateName } = useContext(UserAuth)
+  const [userinfo, setUserinfo] = useState(null)
+  const { create_user, updateName, setUser, user, setLoading } = useContext(
+    UserAuth,
+  )
   const location = useLocation()
   const navigate = useNavigate()
   const from = location?.state?.from?.pathname || '/'
@@ -18,10 +21,23 @@ function Signup() {
     const password = target.password.value
 
     create_user(email, password)
-      .then((user) => {
+      .then((u) => {
         swal('Good job!', 'User Create Success', 'success')
+        // setLoading(true)
+        setUser({
+          displayName: name,
+          photoURL: photo,
+          uid: true,
+        })
         updateName(name, photo)
-          .then((name) => console.log('name: ', name))
+          .then(() => {
+            // setUser({
+            //   displayName: name,
+            //   photoURL: photo,
+            // })
+
+            console.log('user: ', user)
+          })
           .catch((error) => console.log(error))
         target.reset()
         navigate(from, { replace: true })
@@ -31,6 +47,15 @@ function Signup() {
         navigate('/sign-up')
       })
   }
+
+  // useEffect(() => {
+  //   if (user || userinfo) {
+  //     setUser({ ...user, ...userinfo })
+  //     console.log(user, '50')
+  //     // setLoading(false)
+  //   }
+  // }, [user, userinfo])
+
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
       <Helmet>
@@ -70,6 +95,7 @@ function Signup() {
               <input
                 name="email"
                 placeholder="Email"
+                type="email"
                 required
                 className="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
               />

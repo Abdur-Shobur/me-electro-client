@@ -11,7 +11,6 @@ function SigninWIthPopUp() {
   const {
     sign_in_google_pop_up,
     sign_in_git_hub_pop_up,
-    loading,
     setLoading,
   } = useContext(UserAuth)
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import ServiceCard from '../../component/Card/ServiceCard'
-import loading_img from '../../media/loading.gif'
 import { Helmet } from 'react-helmet'
 import BeatLoader from 'react-spinners/BeatLoader'
 function Services() {

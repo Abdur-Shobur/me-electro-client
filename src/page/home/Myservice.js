@@ -40,8 +40,7 @@ function Myservice() {
                   Growth
                 </h3>
                 <p className="text-gray-500 mb-2">
-                  Filler text is dummy text which has no meaning however looks
-                  very similar to real text.
+                  I'm Always try to best gorw for you
                 </p>
                 <a
                   href="f"
@@ -75,8 +74,7 @@ function Myservice() {
                   Security
                 </h3>
                 <p className="text-gray-500 mb-2">
-                  Filler text is dummy text which has no meaning however looks
-                  very similar to real text.
+                  For your Security its important to Carefull it
                 </p>
                 <a
                   href="f"
@@ -110,8 +108,7 @@ function Myservice() {
                   Full time serivce
                 </h3>
                 <p className="text-gray-500 mb-2">
-                  Filler text is dummy text which has no meaning however looks
-                  very similar to real text.
+                  I know that its Its important for Any time
                 </p>
                 <a
                   href="f"
@@ -143,8 +140,7 @@ function Myservice() {
               <div>
                 <h3 className="text-lg md:text-xl font-semibold mb-2">Speed</h3>
                 <p className="text-gray-500 mb-2">
-                  Filler text is dummy text which has no meaning however looks
-                  very similar to real text.
+                  Work grouth is is first for your service
                 </p>
                 <a
                   href="f"
@@ -178,8 +174,7 @@ function Myservice() {
                   Support
                 </h3>
                 <p className="text-gray-500 mb-2">
-                  Filler text is dummy text which has no meaning however looks
-                  very similar to real text.
+                  All over support im providing for You
                 </p>
                 <a
                   href="f"
@@ -213,8 +208,7 @@ function Myservice() {
                   Ontime finish
                 </h3>
                 <p className="text-gray-500 mb-2">
-                  Filler text is dummy text which has no meaning however looks
-                  very similar to real text.
+                  On Time finish is one of my lovly exp
                 </p>
                 <a
                   href="f"

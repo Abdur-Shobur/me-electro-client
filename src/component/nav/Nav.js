@@ -5,7 +5,9 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 function Nav() {
   const { user, sign_out } = useContext(UserAuth)
-  console.log(user)
+  const u_id = user?.uid
+ 
+
   const user_sing_out = () => {
     sign_out()
       .then((res) => {
@@ -19,11 +21,20 @@ function Nav() {
           progress: undefined,
           theme: 'light',
         })
-        console.log('Success log out')
       })
-      .catch((err) => console.log(err))
+      .catch((err) =>
+        toast.error('Something is wrong!', {
+          position: 'top-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        }),
+      )
   }
-  const u_id = user?.uid
   return (
     <div className="shadow">
       <ToastContainer
@@ -121,7 +132,7 @@ function Nav() {
             </ul>
           </div>
           <div className="navbar-end">
-            {u_id ? (
+            {user?.displayName ? (
               <>
                 <h1>{user?.displayName || 'Unregister'}</h1>
                 <button

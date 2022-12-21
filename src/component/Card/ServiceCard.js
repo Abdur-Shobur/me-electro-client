@@ -9,8 +9,9 @@ import swal from 'sweetalert'
 function ServiceCard({ data }) {
   const { _id, service_name, service_details, rating, price, img } = data
   const { user } = useContext(UserAuth)
+
   let rev = []
-  for (let i = 0; i <= parseInt(rating); i++) {
+  for (let i = 1; i <= parseInt(rating); i++) {
     rev.push(i)
   }
 

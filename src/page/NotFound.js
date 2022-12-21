@@ -21,7 +21,7 @@ function NotFound() {
             >
               <path d="M96 0V47L48 94H0V47L48 0H96Z" />
             </svg>
-            Flowrift
+            ME ElecTro
           </a>
 
           <p className="text-indigo-500 text-sm md:text-base font-semibold uppercase mb-4">

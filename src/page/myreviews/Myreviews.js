@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, useAsyncError } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
 import 'react-toastify/dist/ReactToastify.css'
 import { UserAuth } from '../../auth/Auth'
-import dotdot from '../../media/dotdot.gif'
 import swal from 'sweetalert'
 import { Helmet } from 'react-helmet'
 import BeatLoader from 'react-spinners/BeatLoader'
 function Myreviews() {
   const [deleteall, setdeleteALl] = useState(false)
   const [myreview, setmyReview] = useState([])
+
   const [loading, setLoading] = useState(true)
   const { user } = useContext(UserAuth)
   const id = user?.uid
@@ -48,6 +48,7 @@ function Myreviews() {
                 swal('Poof! Your imaginary file has been deleted!', {
                   icon: 'success',
                 })
+                setdeleteALl(!deleteall)
               }
             })
         }
@@ -131,7 +132,14 @@ function Myreviews() {
                 <tbody>
                   {myreview?.map((e) => (
                     <tr key={e?._id}>
-                      <td className="px-4 py-3">{e.service_name}</td>
+                      <td className="px-4 py-3">
+                        <Link
+                          to={`/services/service/${e?.porduct_id}`}
+                          className="text-blue-800 underline"
+                        >
+                          {e.service_name}
+                        </Link>
+                      </td>
                       <td className="px-4 py-3">
                         {e.review_message.slice(0, 30)}...
                       </td>

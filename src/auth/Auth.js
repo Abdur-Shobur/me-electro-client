@@ -48,7 +48,6 @@ function Auth({ children }) {
   // update user name photo
   const updateName = (name, photo) => {
     setLoading(true)
-
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
@@ -67,11 +66,12 @@ function Auth({ children }) {
       setLoading(false)
     })
     return () => unsub()
-  }, [])
+  }, [setUser])
 
   const value = {
     user,
     create_user,
+    setUser,
     sign_in,
     sign_in_google_pop_up,
     sign_in_git_hub_pop_up,

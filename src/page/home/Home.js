@@ -9,7 +9,6 @@ import { Helmet } from 'react-helmet'
 function Home() {
   return (
     <div>
-      {/* use helmet  */}
       <Helmet>
         <title>ME ElecTro Home</title>
       </Helmet>

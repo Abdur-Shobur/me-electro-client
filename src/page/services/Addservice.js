@@ -19,8 +19,7 @@ function Addservice() {
       price: price,
       service_details: service_details,
     }
-    // update database
-    // console.log(service_name, img, rating, price, service_details)
+
     fetch('https://assignment11-nine.vercel.app/services', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },

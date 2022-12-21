@@ -31,10 +31,8 @@ function Signin() {
           progress: undefined,
           theme: 'light',
         })
-        // const result = user.user.email
-        const U_id = user.user.uid
-        console.log(U_id)
 
+        const U_id = user.user.uid
         const current_user = {
           U_id: U_id,
         }
@@ -47,7 +45,6 @@ function Signin() {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data)
             localStorage.setItem('giniousToken', data.token)
             navigator(from, { replace: true })
           })
@@ -55,9 +52,18 @@ function Signin() {
         target.reset()
       })
       .catch((err) => {
-        console.log(err)
         setLoading(false)
-        navigator('/')
+        toast.error('Invalid User! ', {
+          position: 'top-center',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        })
+        navigator('/sign-in')
       })
   }
   return (
@@ -81,6 +87,7 @@ function Signin() {
                   Email
                 </label>
                 <input
+                  type="email"
                   name="email"
                   className="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
                 />

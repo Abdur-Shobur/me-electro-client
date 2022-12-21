@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { AiOutlineUser } from 'react-icons/ai'
+import SingleReviewCard from './Single_reivew_card'
 
 function ReviewCard({ details_data, set }) {
   const [review, setReview] = useState([])
+
   const id = details_data[0]._id
   useEffect(() => {
     fetch(`https://assignment11-nine.vercel.app/review/product/${id}`)
@@ -28,29 +29,8 @@ function ReviewCard({ details_data, set }) {
           </div>
 
           <div className="divide-y">
-            {review.map((e) => (
-              <div key={e._id} className="flex py-4 md:py-8 gap-3 ">
-                <div>
-                  {e?.user_photo ? (
-                    <img
-                      className="rounded-full w-14 "
-                      src={e.user_photo}
-                      alt=""
-                    />
-                  ) : (
-                    <AiOutlineUser className="text-5xl" />
-                  )}
-                </div>
-                <div className="flex flex-col gap-3 ">
-                  <div>
-                    <span className="block text-sm font-bold">
-                      {e.user_name || 'No Name'}
-                    </span>
-                  </div>
-                  <div>{e.review}</div>
-                  <p className="text-gray-600">{e?.review_message}</p>
-                </div>
-              </div>
+            {review?.map((e) => (
+              <SingleReviewCard key={e._id} data={e} />
             ))}
           </div>
         </div>
